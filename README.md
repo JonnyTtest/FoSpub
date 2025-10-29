@@ -29,4 +29,8 @@ https://youtu.be/1o25vy91Jx4?si=chcybAKpiqBVJVRy
 * oben rechts wird "Git angezeigt"
 * mit "Pull" aktualisieren
 * sonst rechts unten files bearbeiten, speichern(wichtig), 
-dann unter Git file auswählen und "Commit"en, hier noch nicht fertig, 
+dann unter Git file auswählen und "Commit"en, hier noch nicht fertig;
+"Close";Commit message(klar); "Commit"; "Close"; "Push"
+
+ohne "Push" wird commit nicht gesendet
+weiß ist bischen abfuck, aber lohnt sich, trust
