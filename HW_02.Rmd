@@ -1,0 +1,123 @@
+---
+title: "FoS_HW_02_Group_II"
+author: "anon"
+date: "2025-10-30"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Aufgabe 2
+
+Gegeben sei eine reellwertige Zufallsvariable \(X: \Omega \to \mathbb{R}\) und ihre kumulative Verteilungsfunktion (CDF)
+\[
+F(x) := P(X \le x), \quad x \in \mathbb{R}.
+\]
+
+#### Voraussetzung (Maßstetigkeit)
+
+Wenn \(A_n \uparrow A\) (monoton wachsend), dann 
+\[
+P(A_n) \to P(A).
+\]  
+Wenn \(A_n \downarrow A\) (monoton fallend), dann 
+\[
+P(A_n) \to P(A).
+\]
+
+#### Notation
+
+- **Rechtsgrenzwert:** 
+\[
+F(x^+) := \lim_{z \downarrow x} F(z)
+\]
+- **Linksgrenzwert:** 
+\[
+F(x^-) := \lim_{z \uparrow x} F(z)
+\]
+
+#### (a) Monotonie
+
+Für \(x < y\) gilt
+\[
+\{X \le x\} \subset \{X \le y\}.
+\]  
+Mit der Monotonie von Wahrscheinlichkeiten:
+\[
+F(x) = P(X \le x) \le P(X \le y) = F(y).
+\]  
+Gleichheit kann auftreten, z.B. wenn \(P(x < X \le y) = 0\).
+
+#### (b) Wertebereich und Grenzwerte
+
+Für alle \(x\):
+\[
+0 \le F(x) \le 1.
+\]  
+
+Sei \(x_n \downarrow -\infty\). Dann
+\[
+\{X \le x_n\} \downarrow \emptyset \quad \implies \quad \lim_{n \to \infty} F(x_n) = P(\emptyset) = 0.
+\]  
+
+Sei \(x_n \uparrow +\infty\). Dann
+\[
+\{X \le x_n\} \uparrow \Omega \quad \implies \quad \lim_{n \to \infty} F(x_n) = P(\Omega) = 1.
+\]
+
+#### (c) Rechtsstetigkeit
+
+Für jede Folge \(z_n \downarrow x\) gilt
+\[
+\{X \le z_n\} \downarrow \{X \le x\}.
+\]  
+Mit Maßstetigkeit von oben:
+\[
+F(x^+) = \lim_{z \downarrow x} F(z) = P(X \le x) = F(x).
+\]
+
+#### (d) Linksseitiger Grenzwert und Nicht-Linksstetigkeit
+
+Für jede Folge \(z_n \uparrow x\) gilt
+\[
+\{X \le z_n\} \uparrow \{X < x\}.
+\]  
+Mit Maßstetigkeit von unten existiert
+\[
+F(x^-) = \lim_{z \uparrow x} F(z) = P(X < x).
+\]  
+
+Nicht notwendigerweise linksstetig: Wähle z.B. \(X \equiv 0\) fast sicher. Dann
+\[
+F(x) = 
+\begin{cases}
+0, & x < 0, \\
+1, & x \ge 0,
+\end{cases}
+\quad \Rightarrow \quad F(0^-) = 0 \ne F(0) = 1.
+\]  
+
+Allgemein: Sprünge entsprechen Punktmassen \(P(X = x) > 0\).
+
+#### (e) Wahrscheinlichkeiten prüfen
+
+Für \(x \le y\):
+
+1. Zerlegung:
+\[
+\{X \le y\} = \{X \le x\} \,\dot\cup\, \{x < X \le y\} \quad \implies \quad P(x < X \le y) = F(y) - F(x)
+\]
+
+2. Zerlegung:
+\[
+\{X \le y\} = \{X < x\} \,\dot\cup\, \{x \le X \le y\} \quad \implies \quad P(x \le X \le y) = F(y) - P(X < x) = F(y) - F(x^-)
+\]
+
+3. Zerlegung:
+\[
+\{X \le x\} = \{X < x\} \,\dot\cup\, \{X = x\} \quad \implies \quad P(X = x) = F(x) - F(x^-)
+\]
