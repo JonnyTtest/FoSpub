@@ -11,6 +11,17 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## Part I
+
+##### **Topic**: Probability measures and distribution functions
+### Exercise 1
+
+#### a)
+...
+
+#### b) 
+...
+
 ### Aufgabe 2
 
 Gegeben sei eine reellwertige Zufallsvariable \(X: \Omega \to \mathbb{R}\) und ihre kumulative Verteilungsfunktion (CDF)
@@ -121,3 +132,68 @@ Für \(x \le y\):
 \[
 \{X \le x\} = \{X < x\} \,\dot\cup\, \{X = x\} \quad \implies \quad P(X = x) = F(x) - F(x^-)
 \]
+
+##### **Topic**: Conditional probability and independence
+### Exercise 3
+
+#### a)
+...
+
+#### b) 
+...
+
+#### c) 
+...
+
+### Exercise 4
+
+#### a)
+...
+
+#### b) 
+...
+
+#### c) 
+...
+
+## Part II
+
+### Exercise 5
+
+#### a)
+...
+
+#### b) 
+...
+
+#### c) 
+...
+
+#### d)
+...
+
+#### e) 
+...
+
+#### f) 
+...
+
+#### g) 
+...
+
+##### **Topic**: The Hardy-Weinberg law in population genetics
+## Part III
+
+### Aufgabe 6
+
+#### a)
+...
+
+#### b) 
+...
+
+#### c) 
+...
+
+#### d)
+...
