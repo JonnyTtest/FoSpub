@@ -24,95 +24,106 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Aufgabe 2
 
-Gegeben sei eine reellwertige Zufallsvariable \(X: \Omega \to \mathbb{R}\) und ihre kumulative Verteilungsfunktion (CDF)
-\[
-F(x) := P(X \le x), \quad x \in \mathbb{R}.
-\]
+Let $(\Omega, \mathcal{A}, P)$ be a probability space and $X: \Omega \to \mathbb{R}$ be a random variable.
 
-#### Voraussetzung (Maßstetigkeit)
+**Definition:** The cumulative distribution function (CDF) of $X$ is defined by
+$$F(x) = P(X \leq x) \quad \text{for all } x \in \mathbb{R}$$
 
-Wenn \(A_n \uparrow A\) (monoton wachsend), dann 
-\[
-P(A_n) \to P(A).
-\]  
-Wenn \(A_n \downarrow A\) (monoton fallend), dann 
-\[
-P(A_n) \to P(A).
-\]
 
-#### Notation
+#### a) Property 1: Monotonicity
 
-- **Rechtsgrenzwert:** 
-\[
-F(x^+) := \lim_{z \downarrow x} F(z)
-\]
-- **Linksgrenzwert:** 
-\[
-F(x^-) := \lim_{z \uparrow x} F(z)
-\]
+**Theorem:** $F$ is monotonically increasing, i.e., for $x_1 < x_2$ we have $F(x_1) \leq F(x_2)$.
 
-#### (a) Monotonie
+**Proof:**
 
-Für \(x < y\) gilt
-\[
-\{X \le x\} \subset \{X \le y\}.
-\]  
-Mit der Monotonie von Wahrscheinlichkeiten:
-\[
-F(x) = P(X \le x) \le P(X \le y) = F(y).
-\]  
-Gleichheit kann auftreten, z.B. wenn \(P(x < X \le y) = 0\).
 
-#### (b) Wertebereich und Grenzwerte
+$$A_1  = \{\omega \in \Omega: X(\omega)\leq x_1\}$$
+$$A_2  = \{\omega \in \Omega: X(\omega)\leq x_2\}$$
+Let $x_1 < x_2$. Then for the events:
+$$A_1 \subseteq A_2$$
+and thus
+$$P(A_1) \leq P(A_2)$$
+which is equal to 
+$$F(x) \leq F(y)$$ $\square$
 
-Für alle \(x\):
-\[
-0 \le F(x) \le 1.
-\]  
+---
 
-Sei \(x_n \downarrow -\infty\). Dann
-\[
-\{X \le x_n\} \downarrow \emptyset \quad \implies \quad \lim_{n \to \infty} F(x_n) = P(\emptyset) = 0.
-\]  
 
-Sei \(x_n \uparrow +\infty\). Dann
-\[
-\{X \le x_n\} \uparrow \Omega \quad \implies \quad \lim_{n \to \infty} F(x_n) = P(\Omega) = 1.
-\]
 
-#### (c) Rechtsstetigkeit
+$$\bigcup_{n=1}^\infty A_n = \{X \leq n \text{ für mindestens ein } n\} = \Omega$$
 
-Für jede Folge \(z_n \downarrow x\) gilt
-\[
-\{X \le z_n\} \downarrow \{X \le x\}.
-\]  
-Mit Maßstetigkeit von oben:
-\[
-F(x^+) = \lim_{z \downarrow x} F(z) = P(X \le x) = F(x).
-\]
+$$\lim_{n \to \infty} P(A_n) = P\left(\bigcup_{n=1}^\infty A_n\right)$$
+Also:
 
-#### (d) Linksseitiger Grenzwert und Nicht-Linksstetigkeit
+ $$\lim_{n \to \infty} F(n) = P(\Omega) = 1 \quad\square$$
 
-Für jede Folge \(z_n \uparrow x\) gilt
-\[
-\{X \le z_n\} \uparrow \{X < x\}.
-\]  
-Mit Maßstetigkeit von unten existiert
-\[
-F(x^-) = \lim_{z \uparrow x} F(z) = P(X < x).
-\]  
+---
 
-Nicht notwendigerweise linksstetig: Wähle z.B. \(X \equiv 0\) fast sicher. Dann
-\[
-F(x) = 
-\begin{cases}
-0, & x < 0, \\
-1, & x \ge 0,
-\end{cases}
-\quad \Rightarrow \quad F(0^-) = 0 \ne F(0) = 1.
-\]  
+#### b) Property 2: Limits
 
-Allgemein: Sprünge entsprechen Punktmassen \(P(X = x) > 0\).
+##### Part a: Limit at $-\infty$
+
+**Theorem:** $\lim_{x \to -\infty} F(x) = 0$
+
+**Proof:**
+
+Let $(x_n)_{n \in \mathbb{N}}$ be a sequence with $x_n \to -\infty$ and $x_n \downarrow$ (e.g., $x_n = -n$).
+
+Set $A_n = \{X \leq x_n\}$. Then:
+
+* $(A_n)$ is a decreasing sequence of events and we have continuity from above $A_n\downarrow$
+* $\bigcap_{n=1}^\infty A_n = \emptyset$ (since $x_n \rightarrow -\infty$)
+
+By continuity from above:
+$$\lim_{n \to \infty} P(A_n) = P\left(\bigcap_{n=1}^\infty A_n\right) = P(\emptyset) = 0$$
+
+Therefore 
+
+$$\lim_{n \to \infty} F(x_n) = 0 \quad \square$$
+
+---
+
+##### Part b: Limit at $+\infty$
+
+**Theorem:** $\lim_{x \to +\infty} F(x) = 1$
+
+**Proof:**
+
+Let $(x_n)_{n \in \mathbb{N}}$ be a sequence with $x_n \to +\infty$ and $x_n \uparrow$ (e.g., $x_n = n$).
+
+Set $A_n = \{X \leq x_n\}$. Then:
+
+* $(A_n)$ is an increasing sequence of events and we have continuity from below $A_n\uparrow$
+* $\bigcup_{n=1}^\infty A_n = \Omega$ (since $x_n \rightarrow \infty$)
+
+By continuity from below:
+$$\lim_{n \to \infty} P(A_n) = P\left(\bigcup_{n=1}^\infty A_n\right) = P(\Omega) = 1$$
+
+Therefore 
+
+$$\lim_{n \to \infty} F(x_n) = 1 \quad  \square$$
+
+---
+
+#### c) Property 3: Right-Continuity
+
+**Theorem:** For all $x_0 \in \mathbb{R}$: $\lim_{x \to x_0^+} F(x) = F(x_0)$
+
+$x \to x_0^+$ means $x$ approaches $x_0$ from the right (from above)
+
+**Proof:**
+
+Let $(x_n)$ be a sequence with $x_n \downarrow x_0$ (e.g., $x_n = x_0 + \frac{1}{n}$).
+
+Set $A_n = \{X \leq x_n\}$ and $A = \{X \leq x_0\}$. Then:
+
+* $(A_n)$ is a decreasing sequence
+* $\bigcap_{n=1}^\infty A_n = A$ (since $X(\omega) \leq x_n \forall n$ $\Rightarrow$ $X(\omega) \leq x_0$)
+
+By continuity from above:
+$$\lim_{n \to \infty} F(x_n) = \lim_{n \to \infty} P(A_n) = P(A) = F(x_0)\quad \square$$
+
+---
 
 #### (e) Wahrscheinlichkeiten prüfen
 
@@ -187,7 +198,12 @@ Für \(x \le y\):
 ### Aufgabe 6
 
 #### a)
-...
+Gesucht ist; $P(Aa \cdot Aa \cap aa)$
+Mating is independent:
+$$P(Aa \cdot Aa)=2q \cdot 2q = 4q^2$$ 
+
+umgeformt nach Base
+$$P(Aa \cdot Aa \cap aa)=P(Aa \cdot Aa|aa)\cdot P(aa)$$
 
 #### b) 
 ...
