@@ -16,11 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ##### **Topic**: Probability measures and distribution functions
 ### Exercise 1
 
-#### a)
-...
-
-#### b) 
-...
+![](images/sheet_02_ex_01.png)
 
 ### Aufgabe 2
 
@@ -171,17 +167,7 @@ Für \(x \le y\):
 
 ### Exercise 5
 
-#### a)
-...
-
-#### b) 
-...
-
-#### c) 
-...
-
-#### d)
-...
+![](images/sheet_02_ex_05.png)
 
 #### e) 
 ...
