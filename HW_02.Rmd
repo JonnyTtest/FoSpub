@@ -169,14 +169,52 @@ Für \(x \le y\):
 
 ![](images/sheet_02_ex_05.png)
 
-#### e) 
-...
+#### e), f)
+```{r}
+# Given parameters
+sens <- 0.9652
+spec <- 0.9968
+prob_false_pos <- 1 - spec
 
-#### f) 
-...
+# Incidence rates (0% to 5%)
+prob_C <- seq(0, 0.05, by = 0.0001)
 
-#### g) 
-...
+# Compute P(C|+)
+prob_C_given_pos <- (sens * prob_C) / (sens * prob_C + prob_false_pos * (1 - prob_C))
+
+# Plot
+plot(prob_C * 100, prob_C_given_pos * 100, type = "l", 
+     xlab = "P(C)",
+     ylab = "P(C|+)",
+     main = "Diagnostic Power of Test")
+
+points(0.00007 * 100, 0.0207 * 100, col = "blue", pch = 19)
+text(0.00007 * 100, 0.0207 * 100, "Ge2025", pos = 4, col = "blue")
+
+points(0.019 * 100, 0.8538 * 100, col = "red", pch = 19)
+text(0.019 * 100, 0.8538 * 100, "Ge2022", pos = 4, col = "red")
+
+abline(h = 50, lty = 2)
+prob_C_given_pos_50 <- 0.0033
+points(prob_C_given_pos_50 * 100, 50, pch = 8, col = "darkgreen", cex = 1)
+```
+
+#### g)
+```{r}
+set.seed(420)
+n <- 1000000
+prob_C <- 0.00007
+
+# Simulate infection status
+C <- rbinom(n, 1, prob_C)
+# Simulate test results
+test_pos <- ifelse(C == 1,
+                   rbinom(n, 1, sens),
+                   rbinom(n, 1, 1 - spec))
+# Estimate P(C|+)
+P_C_given_pos_sim <- mean(C[test_pos == 1])
+P_C_given_pos_sim
+```
 
 ##### **Topic**: The Hardy-Weinberg law in population genetics
 ## Part III
