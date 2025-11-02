@@ -3,8 +3,8 @@ title: "FoS_HW_02_Group_II"
 author: "anon"
 date: "2025-10-30"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -212,9 +212,9 @@ $$F(x^-) = \sup\{F(z) : z < x\}\quad \square$$
 
 #### d ) Counterexample: F is not necessarily left-continuous
 
-**Given:** F is left-limited, meaning the left limit F(x⁻) = lim_{z↗x} F(z) exists at every point x ∈ ℝ.
+**Given:** $F$ is left-limited, meaning the left limit $F(x^-) = lim_{z\nearrow x}$ $F(z)$ exists at every point $x \in\mathbb{R}$.
 
-**To show:** F can satisfy F(x) ≠ F(x⁻), i.e., F is not necessarily left-continuous.
+**To show:** $F$ can satisfy $F(x) \neq F(x^-)$, i.e., $F$ is not necessarily left-continuous.
 
 **Counterexample:**
 
@@ -268,11 +268,11 @@ iii)
 ##### **Topic**: Conditional probability and independence
 ### Exercise 3
 
-![](images/sheet_02_ex_03.jpg)
+![](images/sheet_02_ex_03.png)
 
 ### Exercise 4
 
-![](images/sheet_02_ex_04.jpg)
+![](images/sheet_02_ex_04.png)
 ...
 
 ## Part II
@@ -399,7 +399,7 @@ $$r_2 = (r+q)^2 = r_1$$
 
 **Base case:** $n = 1$
 
-Trivially true: $p_1 = p_1$, $2q_1 = 2q_1$, $r_1 = r_1$ ✓
+Trivially true: $p_1 = p_1$, $2q_1 = 2q_1$, $r_1 = r_1 \checkmark$ 
 
 **Inductive hypothesis:** Assume for some $k \geq 1$:
 $$p_k = p_1, \quad 2q_k = 2q_1, \quad r_k = r_1$$
