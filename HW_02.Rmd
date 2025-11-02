@@ -268,24 +268,11 @@ iii)
 ##### **Topic**: Conditional probability and independence
 ### Exercise 3
 
-#### a)
-...
-
-#### b) 
-...
-
-#### c) 
-...
+![](images/sheet_02_ex_03.jpg)
 
 ### Exercise 4
 
-#### a)
-...
-
-#### b) 
-...
-
-#### c) 
+![](images/sheet_02_ex_04.jpg)
 ...
 
 ## Part II
@@ -340,6 +327,8 @@ test_pos <- ifelse(C == 1,
 P_C_given_pos_sim <- mean(C[test_pos == 1])
 P_C_given_pos_sim
 ```
+
+
 
 ##### **Topic**: The Hardy-Weinberg law in population genetics
 ## Part III
