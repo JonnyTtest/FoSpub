@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ![](images/sheet_02_ex_01.png)
 
-### Aufgabe 2
+### Exercise 2
 
 Let $(\Omega, \mathcal{A}, P)$ be a probability space and $X: \Omega \to \mathbb{R}$ be a random variable.
 
@@ -46,7 +46,7 @@ $$F(x) \leq F(y)$$ $\square$
 
 
 
-$$\bigcup_{n=1}^\infty A_n = \{X \leq n \text{ für mindestens ein } n\} = \Omega$$
+$$\bigcup_{n=1}^\infty A_n = \{X \leq n \text{ for at least one } n\} = \Omega$$
 
 $$\lim_{n \to \infty} P(A_n) = P\left(\bigcup_{n=1}^\infty A_n\right)$$
 Also:
