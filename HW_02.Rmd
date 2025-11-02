@@ -121,21 +121,146 @@ $$\lim_{n \to \infty} F(x_n) = \lim_{n \to \infty} P(A_n) = P(A) = F(x_0)\quad \
 
 ---
 
-#### (e) Wahrscheinlichkeiten prüfen
+#### d ) F is left-limited 
+##### Statement to Prove
 
-Für \(x \le y\):
+A distribution function $F$ is **left-limited** at each point $x \in \mathbb{R}$, i.e., the left-hand limit exists:
 
-1. Zerlegung:
+$$F(x^-) := \lim_{z \nearrow x} F(z) \text{ exists for all } x \in \mathbb{R}$$
+
+---
+
+##### Properties of Distribution Functions
+
+Recall that $F$ has the following properties:
+
+1. **Monotone increasing**: For all $x \leq y$, we have $F(x) \leq F(y)$
+2. **Right-continuous**: For all $x \in \mathbb{R}$, $\lim_{z \searrow x} F(z) = F(x)$
+3. **Limits**: $\lim_{x \to -\infty} F(x) = 0$ and $\lim_{x \to \infty} F(x) = 1$
+
+---
+
+##### Proof
+
+**Fix an arbitrary point $x \in \mathbb{R}$.**
+
+##### Step 1: Define the set of left-hand values
+
+Consider the set:
+$$M = \{F(z) : z < x\}$$
+
+This is the set of all values that $F$ takes at points to the left of $x$.
+
+##### Step 2: $M$ is bounded above
+
+**Claim:** $M$ is bounded above.
+
+**Proof:** For any $z < x$, the monotonicity of $F$ gives us $F(z) \leq F(x)$.
+
+Therefore, $F(x)$ is an upper bound for $M$.
+
+##### Step 3: The supremum exists
+
+Since $M$ is non-empty ($F$ is defined on all of $\mathbb{R}$) and bounded above, by the **completeness axiom of $\mathbb{R}$**, the supremum exists:
+
+$$L := \sup M = \sup\{F(z) : z < x\}$$
+
+##### Step 4: $L$ is the left-hand limit
+
+**Claim:** $L = \lim_{z \nearrow x} F(z) = F(x^-)$
+
+**Proof:** We must show that for every $\varepsilon > 0$, there exists $\delta > 0$ such that for all $z$ with $x - \delta < z < x$:
+
+$$|F(z) - L| < \varepsilon$$
+
+Let $\varepsilon > 0$ be given.
+
+**Part A:** By definition of supremum, $F(z) \leq L$ for all $z < x$.
+
+Therefore: $0 \leq L - F(z)$ for all $z < x$.
+
+**Part B:** By the characterization of supremum, for any $\varepsilon > 0$, there exists $z_0 < x$ such that:
+
+$$L - \varepsilon < F(z_0) \leq L$$
+
+(Otherwise, $L - \varepsilon$ would be a smaller upper bound, contradicting that $L$ is the *least* upper bound.)
+
+**Part C:** Choose $\delta := x - z_0 > 0$.
+
+For any $z$ with $x - \delta < z < x$, we have:
+
+- $z_0 < z < x$ (by choice of $\delta$)
+- $F(z_0) \leq F(z) \leq L$ (by monotonicity and Part A)
+- $L - \varepsilon < F(z_0) \leq F(z) \leq L$ (combining with Part B)
+
+Therefore:
+$$L - \varepsilon < F(z) \leq L$$
+
+which gives us:
+$$0 \leq L - F(z) < \varepsilon$$
+
+Hence:
+$$|F(z) - L| < \varepsilon$$
+
+This proves that $\lim_{z \nearrow x} F(z) = L$.
+
+**Conclusion**
+
+We have shown that the left-hand limit $F(x^-) = \lim_{z \nearrow x} F(z)$ exists and equals:
+
+$$F(x^-) = \sup\{F(z) : z < x\}\quad \square$$
+
+#### d ) Counterexample: F is not necessarily left-continuous
+
+**Given:** F is left-limited, meaning the left limit F(x⁻) = lim_{z↗x} F(z) exists at every point x ∈ ℝ.
+
+**To show:** F can satisfy F(x) ≠ F(x⁻), i.e., F is not necessarily left-continuous.
+
+**Counterexample:**
+
+Consider the CDF:
+$$F(x) = \begin{cases} 
+0 & \text{if } x < 0 \\
+1 & \text{if } x \geq 0
+\end{cases}$$
+
+This is the CDF of a point mass at x = 0.
+
+**Evaluation at x = 0:**
+
+**Left limit:**
+$$F(0^-) = \lim_{z \nearrow 0} F(z) = \lim_{z \nearrow 0} 0 = 0$$
+
+(since F(z) = 0 for all z < 0)
+
+**Function value:**
+$$F(0) = 1$$
+
+**Conclusion:**
+$$F(0^-) = 0 \neq 1 = F(0)$$
+
+Therefore, F is left-limited (the left limit exists) but **not left-continuous** at x = 0.
+
+This demonstrates that a CDF can have $F(x) \neq F(x^-)\quad \square$.
+
+
+---
+
+#### (e) 
+
+For \(x \le y\):
+
+i)
 \[
 \{X \le y\} = \{X \le x\} \,\dot\cup\, \{x < X \le y\} \quad \implies \quad P(x < X \le y) = F(y) - F(x)
 \]
 
-2. Zerlegung:
+ii)
 \[
 \{X \le y\} = \{X < x\} \,\dot\cup\, \{x \le X \le y\} \quad \implies \quad P(x \le X \le y) = F(y) - P(X < x) = F(y) - F(x^-)
 \]
 
-3. Zerlegung:
+iii)
 \[
 \{X \le x\} = \{X < x\} \,\dot\cup\, \{X = x\} \quad \implies \quad P(X = x) = F(x) - F(x^-)
 \]
@@ -222,18 +347,102 @@ P_C_given_pos_sim
 ### Aufgabe 6
 
 #### a)
-Gesucht ist; $P(Aa \cdot Aa \cap aa)$
+Searched is; $P(Aa \cdot Aa \cap aa)$
 Mating is independent:
 $$P(Aa \cdot Aa)=2q \cdot 2q = 4q^2$$ 
 
-umgeformt nach Base
-$$P(Aa \cdot Aa \cap aa)=P(Aa \cdot Aa|aa)\cdot P(aa)$$
+Offspring being aa:
+$$P(aa|Aa \cdot Aa) = \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4} $$
+$P(A\cap B)=P(A) \cdot P(B|A)$:
+$$P(Aa \cdot Aa \cap aa) = P(Aa\cdot Aa) \cdot P(aa|Aa \cdot Aa)=4q^2\cdot \frac{1}{4}=q^2$$
 
-#### b) 
-...
+#### b)
 
-#### c) 
-...
+The question arises as to how much the individual genotypes contribute to A.
 
-#### d)
-...
+* $AA$: (guaranteed) A Allele $\rightarrow$ p
+* $Aa$: half A Allele $\rightarrow$ q
+* $aa$: zero A Allele $\rightarrow$ 0
+
+Thus
+
+* Total frequency of A: $p+q$
+* analog for a: $r+q$
+
+Offspring having AA in the first generation $p_1$
+$$(p+q)\cdot(p+q)=(p+q)^2$$
+
+Offspring having Aa in the first generation $2q_1$
+$$(p+q)\cdot(r+q)+(r+q)\cdot(p+q)=2(r+q)\cdot(p+q)$$
+
+Offspring having aa in the first generation $r_1$
+$$(r+q)\cdot(r+q)=(r+q)^2$$
+
+#### (c)
+
+**Show:** $p_2 = p_1$, $2q_2 = 2q_1$, $r_2 = r_1$
+
+
+**Frequency of $A$ in generation 1:**
+$$p_1 + q_1 = (p+q)^2 + (p+q)(r+q) = (p+q)\underbrace{((p+q) + (r+q))}_{=1}= (p+q) \cdot 1 = p+q$$
+
+**Frequency of $a$ in generation 1:**
+$$r_1 + q_1 = (r+q)^2 + (p+q)(r+q) = (r+q)[(r+q) + (p+q)] = (r+q) \cdot 1 = r+q$$
+
+**Key observation**
+
+The Allele frequencies in generation 1 are the **same** as in generation 0.
+
+**Computing generation 2**
+
+Since Allele frequencies are unchanged, applying the same logic as in part (b):
+
+$$p_2 = (p+q)^2 = p_1$$
+$$2q_2 = 2(p+q)(r+q) = 2q_1$$
+$$r_2 = (r+q)^2 = r_1$$
+
+
+#### (d)
+
+**Show:** $p_n = p_1$, $2q_n = 2q_1$, $r_n = r_1$ for all $n \geq 1$
+
+**Proof by induction:**
+
+**Base case:** $n = 1$
+
+Trivially true: $p_1 = p_1$, $2q_1 = 2q_1$, $r_1 = r_1$ ✓
+
+**Inductive hypothesis:** Assume for some $k \geq 1$:
+$$p_k = p_1, \quad 2q_k = 2q_1, \quad r_k = r_1$$
+
+**Inductive step:** Show $p_{k+1} = p_1$, $2q_{k+1} = 2q_1$, $r_{k+1} = r_1$.
+
+From part (c), we know that if generation $k$ has frequencies $p_k, 2q_k, r_k$, then its allele frequencies are:
+$$p_k + q_k = p_1 + q_1 = p + q$$
+$$r_k + q_k = r_1 + q_1 = r + q$$
+
+Applying random mating to generation $k$:
+$$p_{k+1} = (p_k + q_k)^2 = (p+q)^2 = p_1$$
+$$2q_{k+1} = 2(p_k + q_k)(r_k + q_k) = 2(p+q)(r+q) = 2q_1$$
+$$r_{k+1} = (r_k + q_k)^2 = (r+q)^2 = r_1$$
+
+By induction, the result holds for all $n \geq 1$. $\square$
+
+---
+
+### Hardy-Weinberg Law
+
+**Conclusion:** After one generation of random mating, genotype frequencies reach equilibrium and remain constant forever:
+
+$$\boxed{p_n = (p+q)^2, \quad 2q_n = 2(p+q)(r+q), \quad r_n = (r+q)^2 \quad \forall n \geq 1}$$
+
+**Implications:**
+
+**(i)** No evolutionary change occurs through reproduction alone.
+
+**(ii)** Changes in allele/genotype frequencies require additional forces:
+
+* Natural selection
+* Genetic drift
+* Mutations
+* Migration
