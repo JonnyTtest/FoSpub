@@ -1,0 +1,80 @@
+---
+title: "FoS_HW_03_Group_II"
+author: "anon"
+date: "2025-11-05"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Part I
+### 1.
+#### a)
+
+
+#### b)
+
+
+### 2.
+
+
+## Part II
+### 3.
+
+
+
+### 4.
+#### a)
+
+
+#### b)
+
+
+#### c)
+
+
+#### d) 
+
+### 5.
+#### a)
+
+
+#### b)
+
+
+### 6.
+
+
+## Part III
+### 7.
+
+#### a)
+
+
+#### b)
+
+
+#### c)
+```{r}
+nloop<-10000
+a<-5
+Win<-rep(NA,nloop)
+for (k in 1:nloop){
+Dice<-sample(1:6,size=3,replace=TRUE)
+Count_a<-sum(Dice==a)
+Win[k]<-ifelse(Count_a==0,-1,Count_a)
+}
+sum(Win) ## overall
+sum(Win)/nloop ## on average per game
+```
+
+#### d)
+```{r}
+options(scipen=999)
+plot(cumsum(Win)/(1:nloop),type="l",bty="n",
+ylab="Average Profit",xlab="Number of Rounds")
+abline(h=-17/216,col=2,lty=2)
+```
+
