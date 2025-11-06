@@ -46,6 +46,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### 6.
 
+![](images/sheet_03_ex_06.jpeg)
 
 ## Part III
 ### 7.
