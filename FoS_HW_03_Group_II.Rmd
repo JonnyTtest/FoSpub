@@ -69,6 +69,15 @@ Win[k]<-ifelse(Count_a==0,-1,Count_a)
 }
 sum(Win) ## overall
 sum(Win)/nloop ## on average per game
+
+# outcome for nloop <- 10000:
+#sum(Win) = -759
+#sum(Win)/nloop = -0.0759  (on average per game)
+
+# outcome for nloop <- 100000:
+#sum(Win) = -8007
+#sum(Win)/nloop = -0.08007  (on average per game)
+
 ```
 
 #### d)
