@@ -51,10 +51,10 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Part III
 ### 7.
 
-#### a)
+#### a and b)
 
+![](images/sheet_03_ex_07_a_and_b.jpg)
 
-#### b)
 
 
 #### c)
