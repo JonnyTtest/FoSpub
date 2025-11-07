@@ -81,10 +81,21 @@ sum(Win)/nloop ## on average per game
 ```
 
 #### d)
+Code given:
 ```{r}
 options(scipen=999)
 plot(cumsum(Win)/(1:nloop),type="l",bty="n",
 ylab="Average Profit",xlab="Number of Rounds")
 abline(h=-17/216,col=2,lty=2)
 ```
+
+Our Code: 
+```{r}
+options(scipen=999)
+plot(cumsum(Win)/(1:nloop),type="l",bty="n",
+     ylab="Average Profit",xlab="Number of Rounds",
+     ylim = c(-0.3, 0.3))
+abline(h=-17/216,col=2,lty=2)
+```
+I changed the y axis so that it only goes from -0.3 to 0.3  because really quick it got around the expactation and this way we see the process in more detail
 
