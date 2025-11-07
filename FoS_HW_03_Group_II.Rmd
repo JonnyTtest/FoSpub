@@ -99,3 +99,5 @@ abline(h=-17/216,col=2,lty=2)
 ```
 I changed the y axis so that it only goes from -0.3 to 0.3  because really quick it got around the expactation and this way we see the process in more detail
 
+the plot we got:
+![](images/sheet_03_ex_07_plot.png)
