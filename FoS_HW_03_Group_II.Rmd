@@ -12,10 +12,23 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Part I
 ### 1.
 #### a)
-
+![](images/sheet_03_ex_01.jpeg)
 
 #### b)
 
+```{r}
+set.seed(420)        
+n <- 1000
+count <- 0
+
+for (i in 1:n) {
+  picks <- sample(1:5, 4, replace = TRUE)
+  if (length(unique(picks)) < 4) count <- count + 1
+}
+
+estimate <- count / n
+print(estimate)
+```
 
 ### 2.
 **Possible family compositions:**
@@ -62,20 +75,15 @@ sum(allc)/length(allc)
 
 ## Part II
 ### 3.
-
-
+![](images/sheet_03_ex_03.jpeg)
 
 ### 4.
 #### a)
+![](images/sheet_03_ex_04_a.jpeg)
 
+#### b), c), d)
 
-#### b)
-
-
-#### c)
-
-
-#### d) 
+![](images/sheet_03_ex_04_bcd.jpeg)
 
 ### 5.
 
