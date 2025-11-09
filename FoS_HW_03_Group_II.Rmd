@@ -158,6 +158,7 @@ $$f_Y(y) = -F_X'(-y) \cdot (-1) = F_X'(-y) = f_X(-y)$$
 
 
 #### c)
+**10000 rounds**
 ```{r}
 nloop<-10000
 a<-5
@@ -168,17 +169,27 @@ Count_a<-sum(Dice==a)
 Win[k]<-ifelse(Count_a==0,-1,Count_a)
 }
 sum(Win) ## overall
-sum(Win)/nloop ## on average per game
-
-# outcome for nloop <- 10000:
-#sum(Win) = -759
-#sum(Win)/nloop = -0.0759  (on average per game)
-
-# outcome for nloop <- 100000:
-#sum(Win) = -8007
-#sum(Win)/nloop = -0.08007  (on average per game)
+avg <- sum(Win)/nloop ## on average per game
+cat("For 10000 rounds we get an average profit of", avg, "compared to the theoretical value of", -17/216)
 
 ```
+
+**100000 rounds**
+
+```{r}
+nloop<-100000
+a<-5
+Win<-rep(NA,nloop)
+for (k in 1:nloop){
+Dice<-sample(1:6,size=3,replace=TRUE)
+Count_a<-sum(Dice==a)
+Win[k]<-ifelse(Count_a==0,-1,Count_a)
+}
+sum(Win) ## overall
+avg <- sum(Win)/nloop ## on average per game
+cat("For 100000 rounds we get an average profit of", avg, "compared to the theoretical value of", -17/216)
+```
+
 
 #### d)
 Code given:
@@ -198,4 +209,6 @@ plot(cumsum(Win)/(1:nloop),type="l",bty="n",
 abline(h=-17/216,col=2,lty=2)
 ```
 
-I changed the y axis so that it only goes from -0.3 to 0.3  because really quick it got around the expactation and this way we see the process in more detail
+###### I changed the y axis so that it only goes from -0.3 to 0.3  because really quick it got around the expactation and this way we see the process in more detail.
+
+From the plot, it is evident that the average profit converges to the theoretical expected value (keyword: law of large numbers).
