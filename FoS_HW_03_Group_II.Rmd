@@ -2,7 +2,9 @@
 title: "FoS_HW_03_Group_II"
 author: "anon"
 date: "2025-11-05"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -89,19 +91,19 @@ sum(allc)/length(allc)
 
 #### a)
 
-**Find:** The CDF of $Y = X⁺ = max(0, X)$
+**Find:** The CDF of $Y = X^+ = max(0, X)$
 
 **Case 1: $y < 0$**
 
-Since $Y = max(0, X) ≥ 0$ $\forall x$, we have $P(Y ≤ y) = 0$ for $y < 0$.
+Since $Y = max(0, X) \geq 0$ $\forall x$, we have $P(Y \leq y) = 0$ for $y < 0$.
 
 **Case 2: $y \geq 0$**
 
 For $y \geq 0$:
 
-- $Y ≤ y ⟺ max(0, X) \leq  y$
-- This is equivalent to $X ≤ y$ (since both $X ≤ 0$ and $0 < X ≤ y$ satisfy the condition)
-- Therefore: $P(Y ≤ y) = P(X ≤ y) = F_X(y)$
+- $Y \leq y \iff max(0, X) \leq  y$
+- This is equivalent to $X \leq y$ (since both $X \leq 0$ and $0 < X \leq y$ satisfy the condition)
+- Therefore: $P(Y \leq y) = P(X \leq y) = F_X(y)$
 
 **Result:**
 
@@ -126,7 +128,7 @@ $$P(X \geq -y) = 1 - P(X < -y)$$
 
 Since X is continuous, 
 
-$$P(X < -y) = P(X ≤ -y) = F_X(-y)$$
+$$P(X < -y) = P(X \leq -y) = F_X(-y)$$
 
 $$F_Y(y) = 1 - F_X(-y)$$
 
@@ -195,7 +197,5 @@ plot(cumsum(Win)/(1:nloop),type="l",bty="n",
      ylim = c(-0.3, 0.3))
 abline(h=-17/216,col=2,lty=2)
 ```
-I changed the y axis so that it only goes from -0.3 to 0.3  because really quick it got around the expactation and this way we see the process in more detail
 
-the plot we got:
-![](images/sheet_03_ex_07_plot.png)
+I changed the y axis so that it only goes from -0.3 to 0.3  because really quick it got around the expactation and this way we see the process in more detail
