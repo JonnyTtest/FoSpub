@@ -265,7 +265,6 @@ iii)
 \{X \le x\} = \{X < x\} \,\dot\cup\, \{X = x\} \quad \implies \quad P(X = x) = F(x) - F(x^-)
 \]
 
-##### **Topic**: Conditional probability and independence
 ### Exercise 3
 
 ![](images/sheet_02_ex_03.png)
