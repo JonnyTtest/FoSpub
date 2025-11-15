@@ -11,8 +11,34 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Part I
 ### 1.
-#### a)
-#### b)
+#### a and b)
+![](images/Zettel4Aufgabe1_a_und_b.jpg)
+#### c-e)
+![](images/Zettel4Aufgabe1_c_bis_e.jpg)
+
+### f
+```{r}
+
+#f
+
+m <- sample(-100:100, 1)
+
+s <- sample(1:20, 1)
+
+n <- 10000
+
+X_samples <- rnorm(n, mean = m, sd = s)
+
+
+
+inBoundery <- (X_samples >= m - s) & (X_samples <= m + s)
+
+
+simulated_prob <- sum(inBoundery) / n
+
+print(simulated_prob)
+
+```
 
 ### 2.
 #### a), b)
