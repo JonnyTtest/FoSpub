@@ -84,6 +84,7 @@ curve(dgamma(x, shape=2, rate=1), col="red", add=TRUE)
 #### b)
 
 ### 7.
-#### a)
-#### b)
+#### a and b)
+
+![](images/Zettel4Aufgabe7.jpg)
 
