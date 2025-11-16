@@ -2,14 +2,15 @@
 title: "FoS_HW_04_Group_II"
 author: "anon"
 date: "2025-11-13"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Part I
 ### 1.
 #### a) & b)
 
@@ -62,8 +63,10 @@ curve(dgamma(x, shape=2, rate=1), col="red", add=TRUE)
 
 
 ### 3.
-#### a)
-#### b)
+
+#### a), b), c)
+
+![](images/sheet_04_ex_03.jpeg)
 
 ### 4.
 $$P(X>t+s|X>t)=\frac{P(X>t+s\cap X>t)}{X>t} \quad (1)$$
@@ -86,7 +89,7 @@ $$P(X>t+s|X>t)=\frac{P(X>t+s)}{e^{-\lambda t}}=\frac{e^{-\lambda (t+s)}}{e^{-\la
 We use the **Poisson distribution** because:
 
 - Events occur randomly and independently
-- Constant average rate (λ = 3 per month)
+- Constant average rate ($\lambda$ = 3 per month)
 - We count discrete events in a fixed time interval
 
 **Model:** $X \sim \text{Poisson}(\lambda = 3)$
@@ -115,7 +118,7 @@ p_geq_6
 
 #### c)
 
-### Chebyshev's Inequality
+#### Chebyshev's Inequality
 
 For any random variable with mean $\mu$ and variance $\sigma^2$:
 
@@ -256,5 +259,14 @@ Thus, $|\rho(X,Y)| = 1$.
 ### 7.
 #### a and b)
 
-![](images/Zettel4Aufgabe7.jpg)
+![](images/Zettel4Aufgabe7neu.jpg)
 
+
+
+
+
+below is a alternativ solution but i am not sure if it is ok to argument like this could i get a feedback on the idee
+
+
+
+![](images/Zettel4Aufgabe7.jpg)
