@@ -255,6 +255,9 @@ Thus, $|\rho(X,Y)| = 1$.
 
 ### 7.
 #### a and b)
+![](images/Zettel4Aufgabe7neu.jpg)
+
+below is a alternativ solution but i am not sure if it is ok to argument like this could i get a feedback on the idee
 
 ![](images/Zettel4Aufgabe7.jpg)
 
