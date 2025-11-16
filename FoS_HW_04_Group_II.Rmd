@@ -42,8 +42,8 @@ curve(dgamma(x, shape=2, rate=1), col="red", add=TRUE)
 
 
 ### 3.
-#### a)
-#### b)
+#### a), b), c)
+![](images/sheet_04_ex_03.jpeg)
 
 ### 4.
 #### a)
