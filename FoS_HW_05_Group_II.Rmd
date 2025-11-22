@@ -3,11 +3,13 @@ title: "FoS_HW_05_Group_II"
 output: html_document
 ---
 
-
+### 1
+![](images/Zettel5Aufgabe1.jpeg)
 ### 2.
 #### a) & b)
 ### 3.
 #### a) & b)
+![](images/Zettel5Aufgabe3.jpeg)
 ### 4.
 #### a) & b)
 ### 5.
