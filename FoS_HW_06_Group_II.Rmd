@@ -1,0 +1,57 @@
+---
+title: "FoS_HW_06_Group_II"
+author: "RNR"
+date: "2025-11-24"
+output: html_document
+---
+
+### 1.
+
+### 2.
+
+### 3.
+#### a)
+
+
+#### b)
+
+
+#### c)
+
+
+#### d)
+
+```{r}
+# install.packages("UsingR")
+# require("UsingR")
+library("UsingR")
+
+summary(exec.pay)
+head(exec.pay)
+```
+
+
+
+#### e)
+
+
+#### f)
+
+
+#### g)
+
+
+#### h)
+
+
+#### i)
+
+```{r}
+
+```
+
+
+
+### 4.
+
+### 5.
