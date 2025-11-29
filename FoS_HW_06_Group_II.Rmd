@@ -6,7 +6,9 @@ output: html_document
 ---
 
 ### 1.
+![](images/sheet_06_ex_01.png)
 
+![](images/sheet_06_ex_01(2).png)
 ### 2.
 
 ### 3.
@@ -21,10 +23,10 @@ output: html_document
 
 #### d)
 
-```{r}
+```{rΩ
 # install.packages("UsingR")
 # require("UsingR")
-library("UsingR")
+# library("UsingR")
 
 summary(exec.pay)
 head(exec.pay)
@@ -55,3 +57,23 @@ head(exec.pay)
 ### 4.
 
 ### 5.
+In this exercise we just have to modify the code from the lecture slides
+```{r}
+n <- 10e4
+
+f<-function(x){sqrt(x+sqrt(x+sqrt(x+sqrt(x))))}
+
+x<-seq(-0.5,4.5,length=1000)
+plot(x,f(x),type="l",xlim=c(-1,5), ylim=c(0,3),bty="n",lwd=3)
+
+h<-0 # absolute frequency of getting points under the curve f
+for (i in 1:n){
+  x<-runif(1,0,4)
+  y<-runif(1,0,4)
+  if (y<f(x)){
+    h<-h+1
+  } else {
+  }
+}
+16*h/n # approximation of the grey area
+```
