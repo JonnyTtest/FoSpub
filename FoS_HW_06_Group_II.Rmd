@@ -2,7 +2,9 @@
 title: "FoS_HW_06_Group_II"
 author: "RNR"
 date: "2025-11-24"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ### 1.
@@ -14,7 +16,9 @@ output: html_document
 
 ### 2.
 ![](images/Zettel6Nr2_a.jpeg)
+
 ##### code to a
+
 ```{r}
 n <- 10000
 u <- runif(n)
@@ -31,8 +35,26 @@ curve(2*x, add=TRUE, col="red", lwd=2)
 hist(z_min, freq=FALSE, main="Dichte von Min(U,V)", xlab="z", col="lightgreen")
 curve(2-2*x, add=TRUE, col="red", lwd=2)
 ```
-#### b c d
 
+#### b
+
+
+![](images/Zettel6Nr2_b.jpeg)
+
+
+#### c
+
+
+![](images/Zettel6Nr2_c.jpeg)
+
+
+
+
+
+#### d
+
+
+![](images/Zettel6Nr2_d.jpeg)
 
 ### 3.
 #### a)
@@ -194,6 +216,7 @@ By subtracting 3, we get:
 
 
 #### i)
+
 From g);
 
 ```{r}
@@ -206,6 +229,8 @@ sum(z_score**4-3)/length(z_score)
 
 ### 4.
 
+![](images/Zettel6Nr4.jpeg)
+
 ### 5.
 
 
@@ -214,57 +239,22 @@ In this exercise we just have to modify the code from the lecture slides
 
 
 ```{r}
-
-
 n <- 10e4
-
-
-
-
-
 f<-function(x){sqrt(x+sqrt(x+sqrt(x+sqrt(x))))}
-
-
-
-
-
 x<-seq(-0.5,4.5,length=1000)
-
-
 plot(x,f(x),type="l",xlim=c(-1,5), ylim=c(0,3),bty="n",lwd=3)
 
-
-
-
-
 h<-0 # absolute frequency of getting points under the curve f
-
-
 for (i in 1:n){
-
-
   x<-runif(1,0,4)
-
-
   y<-runif(1,0,4)
-
-
   if (y<f(x)){
-
-
     h<-h+1
-
-
-  } else {
-
-
+  } 
+  else {
   }
-
-
 }
 
-
 16*h/n # approximation of the grey area
-
-
 ```
+
