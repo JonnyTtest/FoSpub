@@ -1,14 +1,17 @@
 ---
 title: "Fos_HW_07_Group_II"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
-### 1.
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.pos = 'H')
+```
 
+### 1. & 2.
 
-
-### 2.
-
+![](images/sheet_07_ex_01_02.jpg)
 
 
 ---
@@ -60,8 +63,7 @@ $\square$
 
 #### c)
 
-We use the bias-variance decomposition for the MSE:
-$$\mathbb{E}[(\hat{f}_n(x) - f(x))^2] = \text{Var}(\hat{f}_n(x)) + \left(\mathbb{E}[\hat{f}_n(x)] - f(x)\right)^2$$
+$$MSE = \mathbb{E}[(\hat{f}_n(x) - f(x))^2] = \text{Var}(\hat{f}_n(x)) + \left(\mathbb{E}[\hat{f}_n(x)] - f(x)\right)^2$$
 
 From (a) we have:
 $$\text{Var}(\hat{f}_n(x)) = \frac{p_k(1-p_k)}{nb^2}$$
@@ -85,9 +87,8 @@ $$\frac{p_k(1-p_k)}{nb^2} \leq \frac{f(\xi_k) \cdot b}{nb^2} = \frac{f(\xi_k)}{n
 as $nb \to \infty$.
 
 Therefore:
-$$\lim_{\substack{b \to 0 \\ nb \to \infty}} \mathbb{E}[(\hat{f}_n(x) - f(x))^2] = 0$$
+$$\lim_{\substack{b \to 0 \\ nb \to \infty}} \mathbb{E}[(\hat{f}_n(x) - f(x))^2] = 0 \quad \square$$
 
-$\square$
 
 #### d)
 
@@ -107,9 +108,9 @@ From (c) we showed that MSE $\to 0$ as $b \to 0$ and $nb \to \infty$.
 Since $\epsilon > 0$ is fixed, we have:
 $$\mathbb{P}\left[|\hat{f}_n(x) - f(x)| > \epsilon\right] \leq \frac{\text{MSE}}{\epsilon^2} \to 0$$
 
-Therefore $\hat{f}_n(x) \xrightarrow{P} f(x)$, which means $\hat{f}_n(x)$ is a consistent estimator for $f(x)$.
+Therefore $\hat{f}_n(x) \xrightarrow{P} f(x)$, which means $\hat{f}_n(x)$ is a consistent estimator for $f(x)$. $\square$
 
-$\square$
+
 
 ---
 
@@ -136,7 +137,7 @@ table(pi2000)
 
 P <- ecdf(pi2000)
 P(0.0)
-plot(P)
+plot(P, main = "Empirical CDF of pi-digits")
 ```
 
 
@@ -149,5 +150,58 @@ I suspect a **uniform distribution** on {0, 1, ..., 9}. Each digit appears rough
 ### 5.
 
 
+![](images/Z7Nr5.jpeg)
+
+
+![](images/Z7Nr5Py.png)
+
+
+So there is a association between  travel class and rescue status but it could be stronger but it is not neglectabel
+
+
+
+
+d)
+
+
+Conclusion: There is a depandancy between  travel class and rescue status which may seem surprising but is shown by the data
+
 
 ### 6.
+
+```{r}
+library(MASS)
+data(Animals)
+
+
+#a)
+
+cor(Animals$body, Animals$brain, method = "pearson")
+plot(Animals$body, Animals$brain, main="Original Scale")
+plot(log(Animals$body), log(Animals$brain), main="Log-Log Scale")
+
+
+#b)
+
+dinos <- c("Brachiosaurus", "Dipliodocus", "Triceratops")
+Animals_no_dino <- Animals[!(row.names(Animals) %in% dinos), ]
+is_dino <- rownames(Animals) %in% dinos
+plot(Animals$body, Animals$brain, main="Original Scale")
+points(Animals$body[is_dino], Animals$brain[is_dino], 
+       col = "red", pch = 17, cex = 1.5)
+
+
+cor(Animals_no_dino$body, Animals_no_dino$brain, method = "pearson")
+
+#c)
+# Spearman mit Dinos
+
+cor(Animals$body, Animals$brain, method = "spearman")
+
+# Spearman ohne Dinos
+
+cor(Animals_no_dino$body, Animals_no_dino$brain, method = "spearman")
+```
+
+
+It seams that the Spearmans rank is more robust to the presense of outliers as also mensiont in the lectures
